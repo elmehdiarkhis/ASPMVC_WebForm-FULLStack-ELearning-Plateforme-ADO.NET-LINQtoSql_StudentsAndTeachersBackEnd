@@ -1,0 +1,470 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+      - primary meta tags
+    -->
+    <title>Booken - Get Your New Book Collections</title>
+    <meta name="title" content="Booken - Get Your New Book Collections">
+    <meta name="description" content="This is a Book eCommerce html template made by codewithsadee">
+
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!--
+      - preload images
+    -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+
+    <style>
+
+        .hero .container {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .hero {
+            padding-block-start: 140px;
+            background-position: left;
+        }
+
+            .hero .btn-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                justify-content: center;
+            }
+
+        .wrapper {
+            max-width: 420px;
+            background-color: #fff;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            margin: 50px auto;
+            box-shadow: 0 8px 20px 0px #1f1f1f1a;
+            overflow: hidden;
+        }
+
+            .wrapper .form-left {
+                background: #3786bd;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                padding: 20px 40px;
+                position: relative;
+                width: 100%;
+                color: #fff;
+            }
+
+            .wrapper h2 {
+                font-weight: 700;
+                font-size: 25px;
+                padding: 5px 0 0;
+                margin-bottom: 34px;
+                pointer-events: none;
+                text-align: center;
+            }
+
+            .wrapper .form-left p {
+                font-size: 0.9rem;
+                font-weight: 300;
+                line-height: 1.5;
+                pointer-events: none;
+            }
+
+            .wrapper .form-left .text {
+                margin: 20px 0 25px;
+            }
+
+            .wrapper .form-left p span {
+                font-weight: 700;
+            }
+
+            .wrapper .form-left input {
+                padding: 15px;
+                background: #fff;
+                border-top-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                width: 180px;
+                border: none;
+                margin: 15px 0 50px 0px;
+                cursor: pointer;
+                color: #333;
+                font-weight: 700;
+                font-size: 0.9rem;
+                appearance: unset;
+                outline: none;
+            }
+
+                .wrapper .form-left input:hover {
+                    background-color: #f2f2f2;
+                }
+
+            .wrapper .form-right {
+                padding: 20px 40px;
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .wrapper .form-right h2 {
+                    color: darkblue;
+                }
+
+                .wrapper .form-right label {
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: #666;
+                    display: block;
+                    margin-top: 8px;
+                }
+
+                .wrapper .form-right .input-field {
+                    width: 100%;
+                    padding: 10px 15px;
+                    border: 1px solid #e5e5e5;
+                    border-top-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    outline: none;
+                    color: #333;
+                }
+
+                    .wrapper .form-right .input-field:focus {
+                        border: 1px solid #31a031;
+                    }
+
+
+            .wrapper .option {
+                display: block;
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 12px;
+                font-size: 0.95rem;
+                font-weight: 900;
+                cursor: pointer;
+                user-select: none
+            }
+
+                .wrapper .option input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0
+                }
+
+            .wrapper .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #fff;
+                border: 2px solid #ddd;
+                border-radius: 2px
+            }
+
+            .wrapper .option:hover input ~ .checkmark {
+                background-color: #f1f1f1
+            }
+
+            .wrapper .option input:checked ~ .checkmark {
+                border: 2px solid #e5e5e5;
+                background-color: #fff;
+                transition: 300ms ease-in-out all
+            }
+
+            .wrapper .checkmark:after {
+                content: "\2713";
+                position: absolute;
+                display: none;
+                color: #3786bd;
+                font-size: 1rem;
+            }
+
+            .wrapper .option input:checked ~ .checkmark:after {
+                display: block
+            }
+
+            .wrapper .option .checkmark:after {
+                left: 2px;
+                top: -4px;
+                width: 5px;
+                height: 10px
+            }
+
+            .wrapper .register {
+                padding: 12px;
+                background: #3786bd;
+                border-top-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                width: 130px;
+                border: none;
+                margin: 6px 0 50px 0px;
+                cursor: pointer;
+                color: #fff;
+                font-weight: 700;
+                font-size: 15px;
+            }
+
+                .wrapper .register:hover {
+                    background-color: #3785bde0;
+                }
+
+            .wrapper a {
+                text-decoration: none;
+            }
+
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e5e5e5;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            outline: none;
+            color: #333;
+            width: 300px;
+        }
+
+        .btn {
+            font-size: var(--fs-7);
+            font-weight: var(--fw-500);
+            max-width: max-content;
+            border: 1px solid var(--white-1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 30px;
+            border-radius: var(--radius-pill);
+            transition: var(--transition-1);
+            background-color: black;
+            color: white;
+        }
+
+            .btn ion-icon {
+                font-size: 16px;
+            }
+
+            .btn:is(:hover, :focus) {
+                background-color: var(--maximum-blue-green);
+                border-color: var(--maximum-blue-green);
+            }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--
+      - #HEADER
+    -->
+
+    <header class="header" data-header>
+        <div class="header-top">
+            <div class="container">
+
+                <a href="/student/index" class="logo">
+                    <img style="height:80px;width:80px;" src="~/Content/images/logo.png" width="138" height="28" alt="booken home">
+                </a>
+
+
+                <div class="header-action">
+
+                    <button class="nav-open-btn" aria-label="open menu" title="Open Menu" data-nav-toggler>
+                        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+
+                    <button class="header-action-btn" aria-label="user" title="User">
+                        <a href="/teacher/login">
+                            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                        </a>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-bottom" data-navbar>
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <button class="nav-close-btn" data-nav-toggler aria-label="clsoe menu" title="Clsoe Menu">
+                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <div class="navbar-top">
+                        <input type="search" name="search" placeholder="Search our store" class="input-field">
+
+                        <button class="search-btn" aria-label="Search">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                    </div>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="/student/index" class="navbar-link">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="/teacher/chooseNe" class="navbar-link">Retourner au choix du Niveaus d'etudes</a>
+                        </li>
+
+
+
+
+                    </ul>
+
+                </nav>
+
+
+            </div>
+        </div>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+    </header>
+
+
+
+
+    @*herooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*@
+
+
+    <main>
+        <article>
+
+            <section class="section hero has-bg-image" aria-label="home"
+                     style="background-image: url('./assets/images/hero-bg.jpg')">
+                <div class="container">
+
+                    <div class="hero-content">
+
+
+
+                        @*========================================================================================*@
+                        <div class="wrapper">
+                            <form action="/teacher/add" method="post" class="form-right">
+
+                                <h2 class="text-uppercase">Veuillez choisir la Categorie/Type de Fichier a Ajouter</h2>
+
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label>Ceci sont les Categories/Types de Fichier que vous pouvez ajouter </label>
+                                        <select name="selectedOption">
+                                            <option value="Video">Video</option>
+                                            <option value="Cours">Cours</option>
+                                            <option value="Exercice">Exercice</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="btn-wrapper">
+                                    <input style="margin-top:10px" type="submit" value="Ajouter" class="btn" name="register">
+                                </div>
+
+                            </form>
+                        </div>
+                        @*========================================================================================*@
+
+
+                    </div>
+
+                    @*<figure class="hero-banner">
+                        <img src="~/Content/images/hero_back.png" width="475" height="600" alt="hero banner" class="w-100">
+                    </figure>*@
+
+                </div>
+            </section>
+
+
+
+        </article>
+    </main>
+
+
+    <!--
+      - custom js link
+    -->
+    <script src="./assets/js/script.js" defer></script>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

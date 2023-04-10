@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ELearningModelStoreContainer" CdmEntityContainer="ELearningEntities">
+    <EntitySetMapping Name="CoursesTables">
+      <EntityTypeMapping TypeName="ELearningModel.CoursesTable">
+        <MappingFragment StoreEntitySet="CoursesTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="NiveauEtude" ColumnName="NiveauEtude" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="photoDetail1" ColumnName="photoDetail1" />
+          <ScalarProperty Name="photoDetail2" ColumnName="photoDetail2" />
+          <ScalarProperty Name="photoDetail3" ColumnName="photoDetail3" />
+          <ScalarProperty Name="photoDetail4" ColumnName="photoDetail4" />
+          <ScalarProperty Name="nbrEtoile" ColumnName="nbrEtoile" />
+          <ScalarProperty Name="nbrAchat" ColumnName="nbrAchat" />
+          <ScalarProperty Name="DescriLong" ColumnName="DescriLong" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="nbrHeures" ColumnName="nbrHeures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseVideoJencts">
+      <EntityTypeMapping TypeName="ELearningModel.CourseVideoJenct">
+        <MappingFragment StoreEntitySet="CourseVideoJenct">
+          <ScalarProperty Name="IdJenct" ColumnName="IdJenct" />
+          <ScalarProperty Name="IdCourse" ColumnName="IdCourse" />
+          <ScalarProperty Name="IdVideo" ColumnName="IdVideo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exercices">
+      <EntityTypeMapping TypeName="ELearningModel.Exercice">
+        <MappingFragment StoreEntitySet="Exercices">
+          <ScalarProperty Name="IdExercice" ColumnName="IdExercice" />
+          <ScalarProperty Name="urlPdfExo" ColumnName="urlPdfExo" />
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="datePublicationExo" ColumnName="datePublicationExo" />
+          <ScalarProperty Name="dateRemiseExo" ColumnName="dateRemiseExo" />
+          <ScalarProperty Name="titreExo" ColumnName="titreExo" />
+          <ScalarProperty Name="DescriExo" ColumnName="DescriExo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inscriptionTables">
+      <EntityTypeMapping TypeName="ELearningModel.inscriptionTable">
+        <MappingFragment StoreEntitySet="inscriptionTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NiveauEtude" ColumnName="NiveauEtude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JoinCoursesExercices">
+      <EntityTypeMapping TypeName="ELearningModel.JoinCoursesExercice">
+        <MappingFragment StoreEntitySet="JoinCoursesExercices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="idCourse" ColumnName="idCourse" />
+          <ScalarProperty Name="idExercice" ColumnName="idExercice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JoinCoursesPDFs">
+      <EntityTypeMapping TypeName="ELearningModel.JoinCoursesPDF">
+        <MappingFragment StoreEntitySet="JoinCoursesPDFs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="idPdf" ColumnName="idPdf" />
+          <ScalarProperty Name="idCourse" ColumnName="idCourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JoinTeacherCourses">
+      <EntityTypeMapping TypeName="ELearningModel.JoinTeacherCourse">
+        <MappingFragment StoreEntitySet="JoinTeacherCourse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="idCourse" ColumnName="idCourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JoinTeacherNEs">
+      <EntityTypeMapping TypeName="ELearningModel.JoinTeacherNE">
+        <MappingFragment StoreEntitySet="JoinTeacherNE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="idNe" ColumnName="idNe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="niveauEtudeTables">
+      <EntityTypeMapping TypeName="ELearningModel.niveauEtudeTable">
+        <MappingFragment StoreEntitySet="niveauEtudeTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="niveauEtude" ColumnName="niveauEtude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PDFs">
+      <EntityTypeMapping TypeName="ELearningModel.PDF">
+        <MappingFragment StoreEntitySet="PDFs">
+          <ScalarProperty Name="IdPdf" ColumnName="IdPdf" />
+          <ScalarProperty Name="urlPdf" ColumnName="urlPdf" />
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="datePublication" ColumnName="datePublication" />
+          <ScalarProperty Name="titreCours" ColumnName="titreCours" />
+          <ScalarProperty Name="DescriCours" ColumnName="DescriCours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentTables">
+      <EntityTypeMapping TypeName="ELearningModel.studentTable">
+        <MappingFragment StoreEntitySet="studentTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NiveauEtude" ColumnName="NiveauEtude" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="statutFirstLogin" ColumnName="statutFirstLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="ELearningModel.Teacher">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideosTables">
+      <EntityTypeMapping TypeName="ELearningModel.VideosTable">
+        <MappingFragment StoreEntitySet="VideosTable">
+          <ScalarProperty Name="IdVideo" ColumnName="IdVideo" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="urlFolder" ColumnName="urlFolder" />
+          <ScalarProperty Name="urlThumbnail" ColumnName="urlThumbnail" />
+          <ScalarProperty Name="idTeacher" ColumnName="idTeacher" />
+          <ScalarProperty Name="datePublication" ColumnName="datePublication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

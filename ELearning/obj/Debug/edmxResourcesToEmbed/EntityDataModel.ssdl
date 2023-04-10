@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ELearningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CoursesTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nchar" MaxLength="100" />
+    <Property Name="DateDebut" Type="date" />
+    <Property Name="Description" Type="nchar" MaxLength="250" />
+    <Property Name="photo" Type="nchar" MaxLength="100" />
+    <Property Name="NiveauEtude" Type="nchar" MaxLength="100" />
+    <Property Name="prix" Type="float" />
+    <Property Name="photoDetail1" Type="nchar" MaxLength="100" />
+    <Property Name="photoDetail2" Type="nchar" MaxLength="100" />
+    <Property Name="photoDetail3" Type="nchar" MaxLength="100" />
+    <Property Name="photoDetail4" Type="nchar" MaxLength="100" />
+    <Property Name="nbrEtoile" Type="int" />
+    <Property Name="nbrAchat" Type="int" />
+    <Property Name="DescriLong" Type="nvarchar(max)" />
+    <Property Name="DateFin" Type="date" />
+    <Property Name="nbrHeures" Type="int" />
+  </EntityType>
+  <EntityType Name="CourseVideoJenct">
+    <Key>
+      <PropertyRef Name="IdJenct" />
+    </Key>
+    <Property Name="IdJenct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCourse" Type="int" />
+    <Property Name="IdVideo" Type="int" />
+  </EntityType>
+  <EntityType Name="Exercices">
+    <Key>
+      <PropertyRef Name="IdExercice" />
+    </Key>
+    <Property Name="IdExercice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urlPdfExo" Type="nvarchar(max)" />
+    <Property Name="idTeacher" Type="int" />
+    <Property Name="datePublicationExo" Type="smalldatetime" />
+    <Property Name="dateRemiseExo" Type="date" />
+    <Property Name="titreExo" Type="nvarchar(max)" />
+    <Property Name="DescriExo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="inscriptionTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nchar" MaxLength="100" />
+    <Property Name="Prenom" Type="nchar" MaxLength="100" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="NiveauEtude" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="JoinCoursesExercices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCourse" Type="int" />
+    <Property Name="idExercice" Type="int" />
+  </EntityType>
+  <EntityType Name="JoinCoursesPDFs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPdf" Type="int" />
+    <Property Name="idCourse" Type="int" />
+  </EntityType>
+  <EntityType Name="JoinTeacherCourse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTeacher" Type="int" />
+    <Property Name="idCourse" Type="int" />
+  </EntityType>
+  <EntityType Name="JoinTeacherNE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTeacher" Type="int" />
+    <Property Name="idNe" Type="int" />
+  </EntityType>
+  <EntityType Name="niveauEtudeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="niveauEtude" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PDFs">
+    <Key>
+      <PropertyRef Name="IdPdf" />
+    </Key>
+    <Property Name="IdPdf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urlPdf" Type="nvarchar(max)" />
+    <Property Name="idTeacher" Type="int" />
+    <Property Name="datePublication" Type="date" />
+    <Property Name="titreCours" Type="nvarchar(max)" />
+    <Property Name="DescriCours" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="studentTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nchar" MaxLength="100" />
+    <Property Name="Prenom" Type="nchar" MaxLength="100" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="NiveauEtude" Type="nchar" MaxLength="100" />
+    <Property Name="UserName" Type="nchar" MaxLength="100" />
+    <Property Name="Pass" Type="nchar" MaxLength="100" />
+    <Property Name="statutFirstLogin" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="idTeacher" />
+    </Key>
+    <Property Name="idTeacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="250" />
+    <Property Name="pass" Type="nvarchar" MaxLength="250" />
+    <Property Name="nom" Type="nvarchar" MaxLength="250" />
+    <Property Name="prenom" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="VideosTable">
+    <Key>
+      <PropertyRef Name="IdVideo" />
+    </Key>
+    <Property Name="IdVideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="statut" Type="nchar" MaxLength="100" />
+    <Property Name="titre" Type="nchar" MaxLength="250" />
+    <Property Name="descri" Type="nvarchar(max)" />
+    <Property Name="urlFolder" Type="nchar" MaxLength="250" />
+    <Property Name="urlThumbnail" Type="nchar" MaxLength="250" />
+    <Property Name="idTeacher" Type="int" />
+    <Property Name="datePublication" Type="smalldatetime" />
+  </EntityType>
+  <Association Name="FK_CourseVideoJenct_ToTable">
+    <End Role="CoursesTable" Type="Self.CoursesTable" Multiplicity="0..1" />
+    <End Role="CourseVideoJenct" Type="Self.CourseVideoJenct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursesTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseVideoJenct">
+        <PropertyRef Name="IdCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseVideoJenct_ToTable_1">
+    <End Role="VideosTable" Type="Self.VideosTable" Multiplicity="0..1" />
+    <End Role="CourseVideoJenct" Type="Self.CourseVideoJenct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideosTable">
+        <PropertyRef Name="IdVideo" />
+      </Principal>
+      <Dependent Role="CourseVideoJenct">
+        <PropertyRef Name="IdVideo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exercices_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="Exercices" Type="Self.Exercices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="idTeacher" />
+      </Principal>
+      <Dependent Role="Exercices">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoinCoursesExercices_ToTable">
+    <End Role="CoursesTable" Type="Self.CoursesTable" Multiplicity="0..1" />
+    <End Role="JoinCoursesExercices" Type="Self.JoinCoursesExercices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursesTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoinCoursesExercices">
+        <PropertyRef Name="idCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoinTeacherCourse_CoursesTable">
+    <End Role="CoursesTable" Type="Self.CoursesTable" Multiplicity="0..1" />
+    <End Role="JoinTeacherCourse" Type="Self.JoinTeacherCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursesTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoinTeacherCourse">
+        <PropertyRef Name="idCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoinTeacherCourse_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="JoinTeacherCourse" Type="Self.JoinTeacherCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="idTeacher" />
+      </Principal>
+      <Dependent Role="JoinTeacherCourse">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoinTeacherNE_NiveauEtudeTable">
+    <End Role="niveauEtudeTable" Type="Self.niveauEtudeTable" Multiplicity="0..1" />
+    <End Role="JoinTeacherNE" Type="Self.JoinTeacherNE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="niveauEtudeTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoinTeacherNE">
+        <PropertyRef Name="idNe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoinTeacherNE_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="JoinTeacherNE" Type="Self.JoinTeacherNE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="idTeacher" />
+      </Principal>
+      <Dependent Role="JoinTeacherNE">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PDFs_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="PDFs" Type="Self.PDFs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="idTeacher" />
+      </Principal>
+      <Dependent Role="PDFs">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_CoursesTable">
+    <End Role="CoursesTable" Type="Self.CoursesTable" Multiplicity="0..1" />
+    <End Role="JoinCoursesPDFs" Type="Self.JoinCoursesPDFs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursesTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoinCoursesPDFs">
+        <PropertyRef Name="idCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Exercices">
+    <End Role="Exercices" Type="Self.Exercices" Multiplicity="0..1" />
+    <End Role="JoinCoursesExercices" Type="Self.JoinCoursesExercices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercices">
+        <PropertyRef Name="IdExercice" />
+      </Principal>
+      <Dependent Role="JoinCoursesExercices">
+        <PropertyRef Name="idExercice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_PDFs">
+    <End Role="PDFs" Type="Self.PDFs" Multiplicity="0..1" />
+    <End Role="JoinCoursesPDFs" Type="Self.JoinCoursesPDFs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PDFs">
+        <PropertyRef Name="IdPdf" />
+      </Principal>
+      <Dependent Role="JoinCoursesPDFs">
+        <PropertyRef Name="idPdf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideosTable_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="VideosTable" Type="Self.VideosTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="idTeacher" />
+      </Principal>
+      <Dependent Role="VideosTable">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ELearningModelStoreContainer">
+    <EntitySet Name="CoursesTable" EntityType="Self.CoursesTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseVideoJenct" EntityType="Self.CourseVideoJenct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exercices" EntityType="Self.Exercices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inscriptionTable" EntityType="Self.inscriptionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JoinCoursesExercices" EntityType="Self.JoinCoursesExercices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JoinCoursesPDFs" EntityType="Self.JoinCoursesPDFs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JoinTeacherCourse" EntityType="Self.JoinTeacherCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JoinTeacherNE" EntityType="Self.JoinTeacherNE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="niveauEtudeTable" EntityType="Self.niveauEtudeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PDFs" EntityType="Self.PDFs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="studentTable" EntityType="Self.studentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideosTable" EntityType="Self.VideosTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CourseVideoJenct_ToTable" Association="Self.FK_CourseVideoJenct_ToTable">
+      <End Role="CoursesTable" EntitySet="CoursesTable" />
+      <End Role="CourseVideoJenct" EntitySet="CourseVideoJenct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseVideoJenct_ToTable_1" Association="Self.FK_CourseVideoJenct_ToTable_1">
+      <End Role="VideosTable" EntitySet="VideosTable" />
+      <End Role="CourseVideoJenct" EntitySet="CourseVideoJenct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exercices_Teachers" Association="Self.FK_Exercices_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Exercices" EntitySet="Exercices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoinCoursesExercices_ToTable" Association="Self.FK_JoinCoursesExercices_ToTable">
+      <End Role="CoursesTable" EntitySet="CoursesTable" />
+      <End Role="JoinCoursesExercices" EntitySet="JoinCoursesExercices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoinTeacherCourse_CoursesTable" Association="Self.FK_JoinTeacherCourse_CoursesTable">
+      <End Role="CoursesTable" EntitySet="CoursesTable" />
+      <End Role="JoinTeacherCourse" EntitySet="JoinTeacherCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoinTeacherCourse_Teachers" Association="Self.FK_JoinTeacherCourse_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="JoinTeacherCourse" EntitySet="JoinTeacherCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoinTeacherNE_NiveauEtudeTable" Association="Self.FK_JoinTeacherNE_NiveauEtudeTable">
+      <End Role="niveauEtudeTable" EntitySet="niveauEtudeTable" />
+      <End Role="JoinTeacherNE" EntitySet="JoinTeacherNE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoinTeacherNE_Teachers" Association="Self.FK_JoinTeacherNE_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="JoinTeacherNE" EntitySet="JoinTeacherNE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PDFs_Teachers" Association="Self.FK_PDFs_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="PDFs" EntitySet="PDFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_CoursesTable" Association="Self.FK_Table_CoursesTable">
+      <End Role="CoursesTable" EntitySet="CoursesTable" />
+      <End Role="JoinCoursesPDFs" EntitySet="JoinCoursesPDFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Exercices" Association="Self.FK_Table_Exercices">
+      <End Role="Exercices" EntitySet="Exercices" />
+      <End Role="JoinCoursesExercices" EntitySet="JoinCoursesExercices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_PDFs" Association="Self.FK_Table_PDFs">
+      <End Role="PDFs" EntitySet="PDFs" />
+      <End Role="JoinCoursesPDFs" EntitySet="JoinCoursesPDFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideosTable_Teachers" Association="Self.FK_VideosTable_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="VideosTable" EntitySet="VideosTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

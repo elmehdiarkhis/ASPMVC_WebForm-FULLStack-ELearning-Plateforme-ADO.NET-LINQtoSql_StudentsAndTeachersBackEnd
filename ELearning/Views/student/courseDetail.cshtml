@@ -1,0 +1,630 @@
+﻿
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+      - primary meta tags
+    -->
+    <title>Booken - Get Your New Book Collections</title>
+    <meta name="title" content="Booken - Get Your New Book Collections">
+    <meta name="description" content="This is a Book eCommerce html template made by codewithsadee">
+
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+
+    <!--
+      - preload images
+    -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        .card-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            background-size:cover;
+
+        }
+
+        .img-display {
+            overflow: hidden;
+        }
+
+        .img-showcase {
+            display: flex;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+
+            .img-showcase img {
+                min-width: 100%;
+            }
+
+        .img-select {
+            display: flex;
+        }
+
+        .img-item {
+            margin: 0.3rem;
+        }
+
+            .img-item:nth-child(1),
+            .img-item:nth-child(2),
+            .img-item:nth-child(3) {
+                margin-right: 0;
+            }
+
+            .img-item:hover {
+                opacity: 0.8;
+            }
+
+        .product-content {
+            padding: 2rem 1rem;
+        }
+
+        .product-title {
+            font-size: 3rem;
+            text-transform: capitalize;
+            font-weight: 700;
+            position: relative;
+            color: #fefefe;
+            margin: 1rem 0;
+        }
+
+            .product-title::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 4px;
+                width: 80px;
+                background: #0087cf;
+            }
+
+        .product-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            background: #0087cf;
+            color: #fff;
+            padding: 0 0.3rem;
+            transition: all 0.5s ease;
+        }
+
+            .product-link:hover {
+                opacity: 0.9;
+            }
+
+        .product-rating {
+            color: #ffc107;
+        }
+
+            .product-rating span {
+                font-weight: 600;
+                color: #ffc107;
+            }
+
+        .product-price {
+            margin: 1rem 0;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+            .product-price span {
+                font-weight: 400;
+            }
+
+        .last-price{
+            display:flex;
+            gap:5px;
+        }
+
+            .last-price span {
+                color: #f64749;
+                text-decoration: line-through;
+                font-size: 1.1rem;
+            }
+
+        .new-price span {
+            color: #fefefe;
+            font-size: 2rem;
+        }
+
+        .product-detail h2 {
+            text-transform: capitalize;
+            color: #fefefe;
+            padding-bottom: 0.6rem;
+        }
+
+        .product-detail p {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+            opacity: 0.8;
+        }
+
+        .product-detail ul {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+            .product-detail ul li {
+                margin: 0;
+                list-style: none;
+                background: url(/Content/images/checked.png) no-repeat;
+                background-size: 18px;
+                padding-left: 1.7rem;
+                margin: 0.4rem 0;
+                font-weight: 600;
+                opacity: 0.9;
+                padding:15px;
+            }
+
+                .product-detail ul li span {
+                    font-weight: 400;
+                }
+
+        .purchase-info {
+            margin: 1.5rem 0;
+        }
+
+            .purchase-info input,
+            .purchase-info .btn {
+                border: 1.5px solid #ddd;
+                border-radius: 25px;
+                text-align: center;
+                padding: 0.45rem 0.8rem;
+                outline: 0;
+                margin-right: 0.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .purchase-info input {
+                width: 60px;
+            }
+
+            .purchase-info .btn {
+                cursor: pointer;
+                color: #fff;
+            }
+
+                .purchase-info .btn:first-of-type {
+                    background: #0028ff;
+                }
+
+                .purchase-info .btn:last-of-type {
+                    background: #0087cf;
+                }
+
+                .purchase-info .btn:hover {
+                    opacity: 0.9;
+                    background: #0087cf;
+                }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+            .social-links a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                color: #fefefe;
+                border: 1px solid #fefefe;
+                margin: 0 0.2rem;
+                border-radius: 50%;
+                text-decoration: none;
+                font-size: 0.8rem;
+                transition: all 0.5s ease;
+                margin-left:10px;
+            }
+
+                .social-links a:hover {
+                    background: #0087cf;
+                    border-color: transparent;
+                    color: #000000;
+                }
+
+        @@media screen and (min-width: 992px) {
+            .card {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1.5rem;
+            }
+
+            .card-wrapper {
+                height: auto;
+                justify-content: center;
+                margin-top:250px;
+            }
+
+            .product-imgs {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .product-content {
+                padding-top: 0;
+            }
+        }
+
+        .btn {
+            font-size: var(--fs-7);
+            font-weight: var(--fw-500);
+            max-width: max-content;
+            border: 1px solid var(--white-1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 30px;
+            border-radius: var(--radius-pill);
+            transition: var(--transition-1);
+        }
+
+            .btn ion-icon {
+                font-size: 16px;
+            }
+
+            .btn:is(:hover, :focus) {
+                background-color: var(--maximum-blue-green);
+                border-color: var(--maximum-blue-green);
+            }
+
+        .blog-card {
+            text-align: center;
+            border: 1px solid var(--white-1);
+            padding: 10px;
+            height: 600px;
+        }
+    </style>
+
+
+</head>
+
+<body id="top">
+
+    <!--
+      - #HEADER
+    -->
+
+    <header class="header" data-header>
+        <div class="header-top">
+            <div class="container">
+
+                <a href="#" class="logo">
+                    <img style="height:80px;width:80px;" src="~/Content/images/logo.png" width="138" height="28" alt="booken home">
+                </a>
+
+
+                <div class="header-action">
+
+                    <button class="nav-open-btn" aria-label="open menu" title="Open Menu" data-nav-toggler>
+                        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+
+                    <div style="display:flex;">
+                        <button class="header-action-btn" aria-label="user" title="User">
+                            <a href="#">
+                                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                            </a>
+                        </button>
+                        @*<h4 style="margin-left:15px">@ViewBag.Nom</h4>*@
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-bottom" data-navbar>
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <button class="nav-close-btn" data-nav-toggler aria-label="clsoe menu" title="Clsoe Menu">
+                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <div class="navbar-top">
+                        <input type="search" name="search" placeholder="Search our store" class="input-field">
+
+                        <button class="search-btn" aria-label="Search">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                    </div>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="#" class="navbar-link">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="/student/courses" class="navbar-link">Go Back to All Courses</a>
+                        </li>
+
+                        <li>
+                            <a href="/student/index" style="color:darkred" class="navbar-link">Logout</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+    </header>
+
+
+
+    @*========================================================*@
+
+
+    <div class="card-wrapper">
+        <div style="margin-top:100px;" class="card">
+            <!-- card left -->
+            <div class="product-imgs">
+
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img src="~/Content/images/@ViewBag.choosenCourse.photoDetail1" alt="shoe image">
+                        <img src="~/Content/images/@ViewBag.choosenCourse.photoDetail2" alt="shoe image">
+                        <img src="~/Content/images/@ViewBag.choosenCourse.photoDetail3" alt="shoe image">
+                        <img src="~/Content/images/@ViewBag.choosenCourse.photoDetail4" alt="shoe image">
+                    </div>
+                </div>
+
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img  src="~/Content/images/@ViewBag.choosenCourse.photoDetail1" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="2">
+                            <img  src="~/Content/images/@ViewBag.choosenCourse.photoDetail2" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="3">
+                            <img  src="~/Content/images/@ViewBag.choosenCourse.photoDetail3" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="4">
+                            <img src="~/Content/images/@ViewBag.choosenCourse.photoDetail4" alt="shoe image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- card right -->
+            <div class="product-content">
+                <h2 class="product-title">@ViewBag.choosenCourse.Nom</h2>
+                <a href="#" class="product-link">Prendre un Rendez vous AVEC UN CONSEILLER</a>
+                <div class="product-rating">
+                    @for (int i = 0; i < @ViewBag.choosenCourse.nbrEtoile; i++)
+                    {
+                        <i class="fas fa-star"></i>
+                    }
+                    @*<i class="fas fa-star-half-alt"></i>*@
+                    <span>@ViewBag.choosenCourse.nbrEtoile (@ViewBag.choosenCourse.nbrAchat)</span>
+                </div>
+
+                <div class="product-price">
+                    
+                    @{
+                        var j = @ViewBag.choosenCourse.prix + ((@ViewBag.choosenCourse.prix * ELearning.Models.GlobalVar.reduction) / 100);
+                    <p class="last-price">Old Price: <span>$@j</span></p>
+                    }
+                    <p class="new-price">New Price: <span>$@ViewBag.choosenCourse.prix</span></p>
+                </div>
+
+                <div class="product-detail">
+                    <h2>about this Course: </h2>
+                    @*===============================================================*@
+
+
+                    <p>
+                        @ViewBag.choosenCourse.DescriLong
+                    </p>
+
+
+                    <ul>
+                        <li>
+                            Date de Debut:
+                            <span> @ViewBag.choosenCourse.DateDebut </span>
+                        </li>
+
+                        <li>
+                            Date de Fin:
+                            <span> @ViewBag.choosenCourse.DateFin </span>
+                        </li>
+
+                        <li>
+                            Niveau d'etude:
+                            <span> @ViewBag.choosenCourse.NiveauEtude </span>
+                        </li>
+
+                        <li>
+                            Nombre d'heures:
+                            <span> @ViewBag.choosenCourse.nbrHeures heures </span>
+                        </li>
+                    </ul>
+
+                    @*
+
+        <p> Tehcnologie Informatique :Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa! </p>
+
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde. </p>
+
+        <p> Competence : </p>
+
+        <ul>
+
+            <li> Lorem ipsum dolor sit amet
+                <span> Lorem i </span>
+            </li>
+
+            <li>
+                Lorem ipsum dolor sit
+                <span> Lorem ipsum </span>
+            </li>
+
+            <li>
+                Lorem
+                <span> Lorem ipsum dol </span>
+            </li>
+
+            <li>
+                  Lorem ip
+                  <span> Lorem ipsum dolor sit amet </span>
+            </li>
+
+        </ul>*@
+                    @*===============================================================*@
+                </div>
+
+                <div style="margin:auto" >
+                    <video style="max-width:500px;max-height:500px;" controls src="~/Content/videos/@ELearning.Models.GlobalVar.urlVideo" >
+
+                    </video>
+                </div>
+
+                <div style="display:flex;gap:5px;justify-content:center;align-items:center" class="purchase-info">
+                    <label>Nombre d'acces :</label>
+                    <input type="number" min="0" value="1">
+                    <button type="button" class="btn">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="social-links">
+                    <p>Share At: </p>
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const imgs = document.querySelectorAll('.img-select a');
+        const imgBtns = [...imgs];
+        let imgId = 1;
+
+        imgBtns.forEach((imgItem) => {
+            imgItem.addEventListener('click', (event) => {
+                event.preventDefault();
+                imgId = imgItem.dataset.id;
+                slideImage();
+            });
+        });
+
+        function slideImage() {
+            const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+            document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+        }
+
+        window.addEventListener('resize', slideImage);
+    </script>
+
+    @*========================================================*@
+
+
+
+
+
+
+
+
+
+    <!--
+      - custom js link
+    -->
+    <script src="~/Content/script.js" defer></script>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+
+

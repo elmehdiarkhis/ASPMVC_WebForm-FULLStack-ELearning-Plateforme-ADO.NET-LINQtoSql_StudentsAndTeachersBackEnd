@@ -1,0 +1,433 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model ELearning.Models.VideoPdfExo
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+      - primary meta tags
+    -->
+    <title>Booken - Get Your New Book Collections</title>
+    <meta name="title" content="Booken - Get Your New Book Collections">
+    <meta name="description" content="This is a Book eCommerce html template made by codewithsadee">
+
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!--
+      - preload images
+    -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        /*.btn {
+            font-size: var(--fs-7);
+            font-weight: var(--fw-500);
+            max-width: max-content;
+            border: 1px solid var(--white-1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 30px;
+            border-radius: var(--radius-pill);
+            transition: var(--transition-1);
+        }
+
+            .btn ion-icon {
+                font-size: 16px;
+            }
+
+            .btn:is(:hover, :focus) {
+                background-color: var(--maximum-blue-green);
+                border-color: var(--maximum-blue-green);
+            }
+
+        .blog-card {
+            text-align: center;
+            border: 1px solid var(--white-1);
+            padding: 10px;
+            height: 600px;
+        }
+
+        .has-scrollbar {
+            margin-top: 200px;
+        }*/
+        @@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            color: #555555;
+        }
+
+        .wrapper {
+            width: 1200px;
+            margin: 50px auto;
+            margin-top: 250px;
+        }
+
+        .button_grp ul {
+            display: flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+            .button_grp ul li {
+                background: #fff;
+                margin: 10px;
+                padding: 10px 15px;
+                min-width: 80px;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+            }
+
+                .button_grp ul li.active,
+                .button_grp ul li:hover {
+                    background: #0000fe;
+                    color: #fff;
+                }
+
+        .item_grp {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 1260px;
+        }
+
+            .item_grp .item {
+                width: 400px;
+                height: auto;
+                background: #fff;
+                margin: 10px;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+            }
+
+                .item_grp .item .icon_wrp {
+                    display: flex;
+                    align-items: center;
+                    height: 85px;
+                    justify-content: center;
+                }
+
+                .item_grp .item .icon {
+                    background: url('https://i.imgur.com/TbvQhl2.png') no-repeat 0 0;
+                    width: 64px;
+                    height: 52px;
+                    display: inline-block;
+                    margin: 0 auto;
+                }
+
+                .item_grp .item.folders .icon {
+                    background-position: 0 0;
+                    width: 64px;
+                    height: 52px;
+                }
+
+                .item_grp .item.files .icon {
+                    background-position: 0 -66px;
+                    width: 48px;
+                    height: 64px;
+                }
+
+                .item_grp .item.images .icon {
+                    background-position: 0 -146px;
+                    width: 64px;
+                    height: 50px;
+                }
+
+                .item_grp .item.sheets .icon {
+                    background-position: 0 -210px;
+                    width: 64px;
+                    height: 60px;
+                }
+
+                .item_grp .item.pdfs .icon {
+                    background-position: 0 -282px;
+                    width: 56px;
+                    height: 64px;
+                }
+
+                .item_grp .item.documents .icon {
+                    background-position: 0 -363px;
+                    width: 64px;
+                    height: 62px;
+                }
+
+        .container{
+            padding-inline:0;
+        }
+
+        .btnDelete {
+            display: inline-block;
+            outline: 0;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 2px solid #ff4742;
+            color: #fff;
+            background-color: #ff4742;
+            padding: 8px;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+            font-weight: 800;
+            font-size: 16px;
+            height: 42px;
+            margin-top:15px;
+            : hover
+
+        {
+            background: 0 0;
+            color: #ff47424d;
+        }
+                
+        }
+    </style>
+
+
+</head>
+
+<body id="top">
+
+    <!--
+      - #HEADER
+    -->
+
+    <header class="header" data-header>
+        <div class="header-top">
+            <div class="container">
+
+                <a href="#" class="logo">
+                    <img style="height:80px;width:80px;" src="~/Content/images/logo.png" width="138" height="28" alt="booken home">
+                </a>
+
+
+                <div class="header-action">
+
+                    <button class="nav-open-btn" aria-label="open menu" title="Open Menu" data-nav-toggler>
+                        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+
+                    <div style="display:flex;">
+                        <button class="header-action-btn" aria-label="user" title="User">
+                            <a href="/teacher/login">
+                                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                            </a>
+                        </button>
+                        @*<h4 style="margin-left:15px">@ViewBag.Nom</h4>*@
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-bottom" data-navbar>
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <button class="nav-close-btn" data-nav-toggler aria-label="clsoe menu" title="Clsoe Menu">
+                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <div class="navbar-top">
+                        <input type="search" name="search" placeholder="Search our store" class="input-field">
+
+                        <button class="search-btn" aria-label="Search">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                    </div>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="#" class="navbar-link">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="/student/index" style="color:darkred" class="navbar-link">Logout</a>
+                        </li>
+
+                        <li>
+                            <a href="/teacher/add" style="color:whitesmoke" class="navbar-link">Ajouter un Fichier</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+    </header>
+
+
+
+
+    @*<main>*@
+    @*<article>*@
+
+    @*<section class="section hero has-bg-image" aria-label="home"
+        style="background-image: url('./assets/images/hero-bg.jpg')">*@
+    <div class="container">
+        @*============================================================================*@
+        <section class="section blog" aria-label="blog">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="button_grp">
+                        <ul>
+                            <li data-li="all" class="btn active">Touts les fichier(par ordre Temporaire)</li>
+                            <li data-li="Videos" class="btn">Enregistrement Videos</li>
+                            <li data-li="Cours" class="btn">Cours</li>
+                            <li data-li="Exercices" class="btn">Exercices</li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="item_grp">
+
+                        @foreach (ELearning.VideosTable item in Model.lstVideoTable)
+                        {
+
+                            <div class="item  Videos">
+                                <a href="/teacher/showVideo?id=@item.IdVideo">
+                                    <div class="icon_wrp">
+                                        <span><img style="width:50px;height:50px;" src="~/Content/images/video-icon-1.png" /></span>
+                                    </div>
+                                    <div style="color:darkblue" class="name">Titre : @item.titre</div>
+                                    <div style="color:darkblue" class="name">Date de publication : @item.datePublication</div>
+                                </a>
+
+                                <button class="btnDelete"><a href="/teacher/deleteVideo?id=@item.IdVideo">Delete</a></button>
+
+                            </div>
+                        }
+
+
+                        @foreach (ELearning.PDF item in Model.lstPdfTable)
+                        {
+                            <div class="item Cours">
+                                <a href="/teacher/showPdf?id=@item.IdPdf">
+                                    <div class="icon_wrp">
+                                        <span><img style="width:50px;height:50px;" src="~/Content/images/pdf.png" /></span>
+                                    </div>
+                                    <div style="color:darkblue" class="name">Nom du Fichier : @item.urlPdf</div>
+                                    <div style="color:darkblue" class="name">Date de publication : @item.datePublication</div>
+                                </a>
+
+
+                                <button class="btnDelete"><a href="/teacher/deletePdf?id=@item.IdPdf">Delete</a></button>
+
+                            </div>
+                        }
+
+
+                        @foreach (ELearning.Exercice item in Model.lstExoTable)
+                        {
+                            <div class="item Exercices">
+                                <a href="/teacher/showExo?id=@item.IdExercice">
+                                    <div class="icon_wrp">
+                                        <span><img style="width:50px;height:50px;" src="~/Content/images/pdf.png" /></span>
+                                    </div>
+                                    <div style="color:darkblue" class="name">Nom du Fichier : @item.urlPdfExo</div>
+                                    <div style="color:darkblue" class="name">Date de publication : @item.datePublicationExo</div>
+                                </a>
+
+                                <button class="btnDelete"><a href="/teacher/deleteExo?id=@item.IdExercice">Delete</a></button>
+
+                            </div>
+                        }
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        @*============================================================================*@
+    </div>
+
+
+    <script>
+        $(".btn").click(function () {
+            var attr = $(this).attr("data-li");
+
+            $(".btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".item").hide();
+
+            if (attr == "Videos") {
+                $("." + attr).show();
+            }
+            else if (attr == "Cours") {
+                $("." + attr).show();
+            }
+            else if (attr == "Exercices") {
+                $("." + attr).show();
+            }
+            else {
+                $(".item").show();
+            }
+        });
+    </script>
+    <script src="~/Content/script.js" defer></script>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+

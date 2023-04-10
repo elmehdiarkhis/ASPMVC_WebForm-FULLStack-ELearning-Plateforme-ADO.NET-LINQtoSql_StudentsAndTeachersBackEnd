@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\ELMEHDI\SOURCE\REPOS\ELEARNING\ELEARNING\APP_DATA\ELEARNING.MDF" Class="myDataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=C:\USERS\ELMEHDI\SOURCE\REPOS\ELEARNING\ELEARNING\APP_DATA\ELEARNING.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="C__USERS_ELMEHDI_SOURCE_REPOS_ELEARNING_ELEARNING_APP_DATA_ELEARNING_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CoursesTable" Member="CoursesTables">
+    <Type Name="CoursesTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="photo" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="NiveauEtude" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="prix" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="photoDetail1" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="photoDetail2" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="photoDetail3" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="photoDetail4" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="nbrEtoile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nbrAchat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescriLong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nbrHeures" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CoursesTable_CourseVideoJenct" Member="CourseVideoJencts" ThisKey="Id" OtherKey="IdCourse" Type="CourseVideoJenct" />
+      <Association Name="CoursesTable_JoinTeacherCourse" Member="JoinTeacherCourses" ThisKey="Id" OtherKey="idCourse" Type="JoinTeacherCourse" />
+      <Association Name="CoursesTable_JoinCoursesPDF" Member="JoinCoursesPDFs" ThisKey="Id" OtherKey="idCourse" Type="JoinCoursesPDF" />
+      <Association Name="CoursesTable_JoinCoursesExercice" Member="JoinCoursesExercices" ThisKey="Id" OtherKey="idCourse" Type="JoinCoursesExercice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseVideoJenct" Member="CourseVideoJencts">
+    <Type Name="CourseVideoJenct">
+      <Column Name="IdJenct" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVideo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CoursesTable_CourseVideoJenct" Member="CoursesTable" ThisKey="IdCourse" OtherKey="Id" Type="CoursesTable" IsForeignKey="true" />
+      <Association Name="VideosTable_CourseVideoJenct" Member="VideosTable" ThisKey="IdVideo" OtherKey="IdVideo" Type="VideosTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.niveauEtudeTable" Member="niveauEtudeTables">
+    <Type Name="niveauEtudeTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="niveauEtude" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="niveauEtudeTable_JoinTeacherNE" Member="JoinTeacherNEs" ThisKey="Id" OtherKey="idNe" Type="JoinTeacherNE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JoinTeacherNE" Member="JoinTeacherNEs">
+    <Type Name="JoinTeacherNE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idNe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="niveauEtudeTable_JoinTeacherNE" Member="niveauEtudeTable" ThisKey="idNe" OtherKey="Id" Type="niveauEtudeTable" IsForeignKey="true" />
+      <Association Name="Teacher_JoinTeacherNE" Member="Teacher" ThisKey="idTeacher" OtherKey="idTeacher" Type="Teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JoinTeacherCourse" Member="JoinTeacherCourses">
+    <Type Name="JoinTeacherCourse">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CoursesTable_JoinTeacherCourse" Member="CoursesTable" ThisKey="idCourse" OtherKey="Id" Type="CoursesTable" IsForeignKey="true" />
+      <Association Name="Teacher_JoinTeacherCourse" Member="Teacher" ThisKey="idTeacher" OtherKey="idTeacher" Type="Teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teachers" Member="Teachers">
+    <Type Name="Teacher">
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="pass" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="nom" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="Teacher_JoinTeacherNE" Member="JoinTeacherNEs" ThisKey="idTeacher" OtherKey="idTeacher" Type="JoinTeacherNE" />
+      <Association Name="Teacher_JoinTeacherCourse" Member="JoinTeacherCourses" ThisKey="idTeacher" OtherKey="idTeacher" Type="JoinTeacherCourse" />
+      <Association Name="Teacher_VideosTable" Member="VideosTables" ThisKey="idTeacher" OtherKey="idTeacher" Type="VideosTable" />
+      <Association Name="Teacher_Exercice" Member="Exercices" ThisKey="idTeacher" OtherKey="idTeacher" Type="Exercice" />
+      <Association Name="Teacher_PDF" Member="PDFs" ThisKey="idTeacher" OtherKey="idTeacher" Type="PDF" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VideosTable" Member="VideosTables">
+    <Type Name="VideosTable">
+      <Column Name="IdVideo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="statut" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="titre" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="descri" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="urlFolder" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="urlThumbnail" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datePublication" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="VideosTable_CourseVideoJenct" Member="CourseVideoJencts" ThisKey="IdVideo" OtherKey="IdVideo" Type="CourseVideoJenct" />
+      <Association Name="Teacher_VideosTable" Member="Teacher" ThisKey="idTeacher" OtherKey="idTeacher" Type="Teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JoinCoursesPDFs" Member="JoinCoursesPDFs">
+    <Type Name="JoinCoursesPDF">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPdf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CoursesTable_JoinCoursesPDF" Member="CoursesTable" ThisKey="idCourse" OtherKey="Id" Type="CoursesTable" IsForeignKey="true" />
+      <Association Name="PDF_JoinCoursesPDF" Member="PDF" ThisKey="idPdf" OtherKey="IdPdf" Type="PDF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JoinCoursesExercices" Member="JoinCoursesExercices">
+    <Type Name="JoinCoursesExercice">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idExercice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CoursesTable_JoinCoursesExercice" Member="CoursesTable" ThisKey="idCourse" OtherKey="Id" Type="CoursesTable" IsForeignKey="true" />
+      <Association Name="Exercice_JoinCoursesExercice" Member="Exercice" ThisKey="idExercice" OtherKey="IdExercice" Type="Exercice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Exercices" Member="Exercices">
+    <Type Name="Exercice">
+      <Column Name="IdExercice" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="urlPdfExo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datePublicationExo" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dateRemiseExo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="titreExo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriExo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Exercice_JoinCoursesExercice" Member="JoinCoursesExercices" ThisKey="IdExercice" OtherKey="idExercice" Type="JoinCoursesExercice" />
+      <Association Name="Teacher_Exercice" Member="Teacher" ThisKey="idTeacher" OtherKey="idTeacher" Type="Teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PDFs" Member="PDFs">
+    <Type Name="PDF">
+      <Column Name="IdPdf" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="urlPdf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="datePublication" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="titreCours" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriCours" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="PDF_JoinCoursesPDF" Member="JoinCoursesPDFs" ThisKey="IdPdf" OtherKey="idPdf" Type="JoinCoursesPDF" />
+      <Association Name="Teacher_PDF" Member="Teacher" ThisKey="idTeacher" OtherKey="idTeacher" Type="Teacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

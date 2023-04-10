@@ -1,0 +1,252 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+      - primary meta tags
+    -->
+    <title>Booken - Get Your New Book Collections</title>
+    <meta name="title" content="Booken - Get Your New Book Collections">
+    <meta name="description" content="This is a Book eCommerce html template made by codewithsadee">
+
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!--
+      - preload images
+    -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+
+    <style>
+        .btn {
+            font-size: var(--fs-7);
+            font-weight: var(--fw-500);
+            max-width: max-content;
+            border: 1px solid var(--white-1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 30px;
+            border-radius: var(--radius-pill);
+            transition: var(--transition-1);
+        }
+
+            .btn ion-icon {
+                font-size: 16px;
+            }
+
+            .btn:is(:hover, :focus) {
+                background-color: var(--maximum-blue-green);
+                border-color: var(--maximum-blue-green);
+            }
+
+        .blog-card {
+            text-align: center;
+            border: 1px solid var(--white-1);
+            padding: 10px;
+            height: 600px;
+        }
+
+        .has-scrollbar {
+            margin-top: 200px;
+        }
+    </style>
+
+
+</head>
+
+<body id="top">
+
+    <!--
+      - #HEADER
+    -->
+
+    <header class="header" data-header>
+        <div class="header-top">
+            <div class="container">
+
+                <a href="#" class="logo">
+                    <img style="height:80px;width:80px;" src="~/Content/images/logo.png" width="138" height="28" alt="booken home">
+                </a>
+
+
+                <div class="header-action">
+
+                    <button class="nav-open-btn" aria-label="open menu" title="Open Menu" data-nav-toggler>
+                        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+
+                    <div style="display:flex;">
+                        <button class="header-action-btn" aria-label="user" title="User">
+                            <a href="/teacher/login">
+                                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                            </a>
+                        </button>
+                        @*<h4 style="margin-left:15px">@ViewBag.Nom</h4>*@
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-bottom" data-navbar>
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <button class="nav-close-btn" data-nav-toggler aria-label="clsoe menu" title="Clsoe Menu">
+                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <div class="navbar-top">
+                        <input type="search" name="search" placeholder="Search our store" class="input-field">
+
+                        <button class="search-btn" aria-label="Search">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                    </div>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="#" class="navbar-link">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="navbar-link">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="/student/index" style="color:darkred" class="navbar-link">Logout</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+    </header>
+
+
+
+
+    @*<main>*@
+    @*<article>*@
+
+    @*<section class="section hero has-bg-image" aria-label="home"
+        style="background-image: url('./assets/images/hero-bg.jpg')">*@
+    <div class="container">
+        @*============================================================================*@
+        <section class="section blog" aria-label="blog">
+            <div class="container">
+
+                <h2 class="h2 section-title">Latest Blog</h2>
+
+                <p class="section-text">
+                    Contrary to popular belief, Lorem Ipsum is not simply random.
+                </p>
+
+                <ul class="has-scrollbar">
+
+                    @foreach (ELearning.CoursesTable course in ViewBag.myListOfTeacherCourses)
+                    {
+
+                        <li class="scrollbar-item">
+                            <div class="blog-card">
+
+                                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+                                    <a href="/teacher/courseTeacherDetails?id=@course.Id">
+                                        <img src="~/Content/images/@course.photo" width="600" height="400" loading="lazy"
+                                             alt="Significant reading has info" class="img-cover">
+                                    </a>
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <h3 class="h3">
+                                        <a href="/teacher/courseTeacherDetails?id=@course.Id" class="card-title">@course.NiveauEtude : @course.Nom</a>
+                                    </h3>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="meta-item">
+                                            <time class="meta-link" datetime="2022-03-04">Date de Debut: @course.DateDebut</time>
+                                        </li>
+
+
+                                    </ul>
+
+                                    <p class="card-text">
+                                        @course.Description
+                                    </p>
+
+                                    <a href="/teacher/courseTeacherDetails?id=@course.Id" class="btn card-btn">Acceder a mon Cours</a>
+
+                                </div>
+
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+
+            </div>
+        </section>
+        @*============================================================================*@
+    </div>
+    @*</section>
+
+
+
+            </article>
+        </main>*@
+
+
+    <!--
+      - custom js link
+    -->
+    <script src="~/Content/script.js" defer></script>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+
+
